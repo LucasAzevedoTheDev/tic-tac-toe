@@ -14,6 +14,25 @@ function gameboardGenerator() {
 
 const board = gameboardGenerator();
 
+function playerGenerator(name, mark) {
+    return {
+      name: name,
+      mark:  mark
+    }
+}
+
+const player1 = playerGenerator("player1", "X");
+const player2 = playerGenerator("player2", "O");
+
+
+
+
+
+
+
+
+
+
 
 
 
