@@ -11,8 +11,8 @@ function boardGenerator() {
       return true;
     },
     reset: () => {
-      gameBoard.forEach(item => {
-        gameBoard[item] = "";
+      gameBoard.forEach((item, index) => {
+        gameBoard[index] = "";
       })
     }
   }
@@ -66,6 +66,7 @@ function gameController() {
           && boardCheck[combo[0]] !== ""
         ) {
           console.log("we have a winner");
+          board.reset();
         }
       })
     }
@@ -87,6 +88,7 @@ console.log(board.getBoard());
 game.playRound(0);
 console.log(board.getBoard());
 console.log(game.checkWinner());
+console.log(board.getBoard());
 
 
 
