@@ -82,6 +82,6 @@ console.log(board.getBoard());
 console.log(game.checkWinner());
 
 
-
+// fix bug at winning condition (empty cells)
 
 
