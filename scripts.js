@@ -1,17 +1,18 @@
-function gameboardGenerator() {
+function boardGenerator() {
   const gameBoard = ["", "", "", "", "", "", "", "", ""];
 
   return {
     getBoard: () => gameBoard,
     placeMark: (index, mark) => {
       if(gameBoard[index] !== "") {
-        return;
+        return false;
       }
       gameBoard[index] = mark;
+      return true;
     }
   }
 }
-const board = gameboardGenerator();
+const board = boardGenerator();
 
 function playerGenerator(name, mark) {
     return {
@@ -37,16 +38,27 @@ function gameController() {
     switchTurn: switchTurn,
     getCurrentPlayer: () => currentPlayer,
     playRound: (index) => {
-      board.placeMark(index, currentPlayer.mark);
-      switchTurn();
+        let marked = board.placeMark(index, currentPlayer.mark);
+        if(marked) {
+          switchTurn();
+        }
     }
   }
 }
 const game = gameController();
 
-// game.playRound(2);
-// console.log(board.getBoard());
-// game.playRound(3);
-// console.log(board.getBoard());
+// TESTS
+console.log(game.getCurrentPlayer());
+game.playRound(2);
+console.log(board.getBoard());
+console.log(game.getCurrentPlayer());
+game.playRound(2);
+console.log(board.getBoard());
+console.log(game.getCurrentPlayer());
+
+// fix bug that changes the player even when the field already has a mark
+// look console
+
+
 
 
