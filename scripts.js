@@ -11,7 +11,6 @@ function gameboardGenerator() {
     }
   }
 }
-
 const board = gameboardGenerator();
 
 function playerGenerator(name, mark) {
@@ -25,6 +24,7 @@ const player2 = playerGenerator("player2", "O");
 
 function gameController() {
   let currentPlayer = player1;
+
   let switchTurn = () => {
     if(currentPlayer === player1) {
         currentPlayer = player2;
@@ -42,18 +42,11 @@ function gameController() {
     }
   }
 }
-
 const game = gameController();
 
-
-
-
-
-
-
-
-
-
-
+// game.playRound(2);
+// console.log(board.getBoard());
+// game.playRound(3);
+// console.log(board.getBoard());
 
 
