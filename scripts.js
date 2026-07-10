@@ -34,6 +34,16 @@ function gameController() {
         currentPlayer = player1;
       }
   }
+  let winningCombos = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ]
   return {
     switchTurn: switchTurn,
     getCurrentPlayer: () => currentPlayer,
@@ -42,6 +52,15 @@ function gameController() {
         if(marked) {
           switchTurn();
         }
+    },
+    checkWinner: () => {
+      let boardCheck = board.getBoard();
+
+      winningCombos.forEach((combo) => {
+        if(boardCheck[combo[0]] === boardCheck[combo[1]] && boardCheck[combo[1]] === boardCheck[combo[2]]) {
+          console.log("we have a winner");
+        }
+      })
     }
   }
 }
@@ -52,12 +71,16 @@ console.log(game.getCurrentPlayer());
 game.playRound(2);
 console.log(board.getBoard());
 console.log(game.getCurrentPlayer());
-game.playRound(2);
+game.playRound(8);
 console.log(board.getBoard());
-console.log(game.getCurrentPlayer());
+game.playRound(1);
+console.log(board.getBoard());
+game.playRound(7);
+console.log(board.getBoard());
+game.playRound(0);
+console.log(board.getBoard());
+console.log(game.checkWinner());
 
-// fix bug that changes the player even when the field already has a mark
-// look console
 
 
 
