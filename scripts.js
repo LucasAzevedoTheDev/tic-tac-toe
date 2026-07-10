@@ -57,7 +57,9 @@ function gameController() {
       let boardCheck = board.getBoard();
 
       winningCombos.forEach((combo) => {
-        if(boardCheck[combo[0]] === boardCheck[combo[1]] && boardCheck[combo[1]] === boardCheck[combo[2]]) {
+        if(boardCheck[combo[0]] === boardCheck[combo[1]] && boardCheck[combo[1]] === boardCheck[combo[2]] 
+          && boardCheck[combo[0]] !== ""
+        ) {
           console.log("we have a winner");
         }
       })
@@ -82,6 +84,5 @@ console.log(board.getBoard());
 console.log(game.checkWinner());
 
 
-// fix bug at winning condition (empty cells)
 
 
