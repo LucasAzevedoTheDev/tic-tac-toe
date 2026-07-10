@@ -9,6 +9,11 @@ function boardGenerator() {
       }
       gameBoard[index] = mark;
       return true;
+    },
+    reset: () => {
+      gameBoard.forEach(item => {
+        gameBoard[item] = "";
+      })
     }
   }
 }
