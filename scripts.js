@@ -84,7 +84,6 @@ function displayController() {
 
   return {
     createGrid: () => {
-      const array = [];
       for(let i = 0; i < board.getBoard().length; i++) {
         let square = document.createElement("div");
           square.classList.add(".square");
