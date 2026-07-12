@@ -89,8 +89,13 @@ input[type="text"] {
   margin-bottom: 10px;
 }
 
+input[type="radio"] {
+  cursor: pointer;
+}
+
 label {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  cursor: pointer;
 }
 
 fieldset {
@@ -98,6 +103,31 @@ fieldset {
   border: none;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 50px;
   margin-bottom: 30px;
+}
+
+.buttons-field {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
+}
+
+.buttons-field button {
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.close-button:hover {
+  border: 3px solid rgb(226, 51, 51);
+  transition: all 0.1s cubic-bezier(0.42, 0, 0.1, 0.61);
+}
+
+.start-button:hover {
+  border: 3px solid rgb(78, 205, 196);
+  transition: all 0.1s cubic-bezier(0.42, 0, 0.1, 0.61);
 }
