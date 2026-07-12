@@ -32,8 +32,8 @@ function Player(name, mark) {
 // const player2 = playerGenerator("player2", "O");
 
 function gameController() {
-  let currentPlayer = player1;
-
+  let currentPlayer = player1;         
+                                                  //  REFACTOR THIS
   let switchTurn = () => {
     if(currentPlayer === player1) {
         currentPlayer = player2;
@@ -78,9 +78,7 @@ function gameController() {
 const game = gameController();
 
 function displayController() {
-  let container = document.createElement("div");
-    container.classList.add("container");
-    document.body.appendChild(container);
+  let container = document.querySelector("div");
 
   let grid = document.createElement("div");
     grid.classList.add("grid");
@@ -121,8 +119,7 @@ game.playRound(7);
 game.playRound(8);
 display.createGrid();
 
-
-
-
+// Refactor gameController() logic
+// Build Dialog tag
 
 
