@@ -9,7 +9,30 @@
 </head>
 <body>
   <button class="start-button">Start</button>
-  <dialog class="modal"></dialog> 
+  <dialog class="modal">
+    <form action="" method="dialog" class="form">
+      <div class="form-field">
+        <label for="player1-input">Player 1 name:</label>
+        <input type="text" id="player1-input" required>
+        <fieldset>
+          <legend>Player 1 mark:</legend>
+          <label for="player1-mark1">X</label>
+          <input type="radio" id="player1-mark1" name="player1-mark">
+          <label for="player1-mark2">O</label>
+          <input type="radio" id="player1-mark2" name="player1-mark">
+        </fieldset>
+        <label for="player2-input">Player 2 name:</label>
+        <input type="text" id="player2-input" required>
+        <fieldset>
+          <legend>Player 2 mark:</legend>
+          <label for="player2-mark1">X</label>
+          <input type="radio" id="player2-mark1" name="player2-mark">
+          <label for="player2-mark2">O</label>
+          <input type="radio" id="player2-mark2" name="player2-mark">
+        </fieldset>
+      </div>
+    </form>
+  </dialog> 
   <div class="container"></div>
 </body>
 </html>
