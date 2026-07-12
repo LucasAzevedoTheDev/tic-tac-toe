@@ -28,8 +28,8 @@ function Player(name, mark) {
   this.mark = mark;
 }
 
-// const player1 = playerGenerator("player1", "X");
-// const player2 = playerGenerator("player2", "O");
+const player1 = new Player("player1", "X");
+const player2 = new Player("player2", "O");
 
 function gameController() {
   let currentPlayer = player1;         
@@ -78,7 +78,7 @@ function gameController() {
 const game = gameController();
 
 function displayController() {
-  let container = document.querySelector("div");
+  let container = document.querySelector(".container");
 
   let grid = document.createElement("div");
     grid.classList.add("grid");
@@ -106,6 +106,21 @@ function displayController() {
   }
 }
 const display = displayController();
+
+const modal = document.querySelector(".modal");
+const dialogButton = document.querySelector(".dialog-button");
+const startButton = document.querySelector(".start-button");
+const closeButton = document.querySelector(".close-button");
+const form = document.querySelector(".form");
+
+dialogButton.addEventListener("click", () => {
+  modal.showModal();
+});
+
+closeButton.addEventListener("click", () => {
+  modal.close();
+  form.reset();
+});
 
 // TESTS
 game.playRound(0);
