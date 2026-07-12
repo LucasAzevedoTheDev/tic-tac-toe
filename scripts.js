@@ -19,14 +19,17 @@ function boardGenerator() {
 }
 const board = boardGenerator();
 
-function playerGenerator(name, mark) {
-    return {
-      name: name,
-      mark:  mark
-    }
+function Player(name, mark) {
+  if(!new.target) {
+    throw Error("You must use the 'new' operator to call the constructor")
+  }
+
+  this.name = name;
+  this.mark = mark;
 }
-const player1 = playerGenerator("player1", "X");
-const player2 = playerGenerator("player2", "O");
+
+// const player1 = playerGenerator("player1", "X");
+// const player2 = playerGenerator("player2", "O");
 
 function gameController() {
   let currentPlayer = player1;
@@ -117,6 +120,7 @@ game.playRound(6);
 game.playRound(7);
 game.playRound(8);
 display.createGrid();
+
 
 
 
