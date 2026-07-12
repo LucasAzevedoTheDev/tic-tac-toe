@@ -84,12 +84,13 @@ function displayController() {
 
   return {
     createGrid: () => {
-      const gridWidth = 3;
       const array = [];
-      for(let i = 0; i < board.getBoard().length; i += gridWidth) {
-        array.push(board.getBoard().slice(i, i + gridWidth));
+      for(let i = 0; i < board.getBoard().length; i++) {
+        let square = document.createElement("div");
+          square.classList.add(".square");
+          square.textContent = board.getBoard()[i];
+          grid.appendChild(square);
       }
-      grid.appendChild(array);
     }
   }
 }
@@ -108,8 +109,8 @@ game.playRound(7);
 console.log(board.getBoard());
 game.playRound(0);
 console.log(board.getBoard());
-console.log(game.checkWinner());
-console.log(board.getBoard());
+display.createGrid();
+
 
 
 
