@@ -76,17 +76,17 @@ const game = gameController();
 
 function displayController() {
   let container = document.createElement("div");
-    container.classList.add(".container");
+    container.classList.add("container");
     document.body.appendChild(container);
   let grid = document.createElement("div");
-    grid.classList.add(".grid");
+    grid.classList.add("grid");
     container.appendChild(grid);
 
   return {
     createGrid: () => {
       for(let i = 0; i < board.getBoard().length; i++) {
         let square = document.createElement("div");
-          square.classList.add(".square");
+          square.classList.add("square");
           square.textContent = board.getBoard()[i];
           grid.appendChild(square);
       }

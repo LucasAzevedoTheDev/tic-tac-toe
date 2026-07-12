@@ -3,3 +3,15 @@
   margin: 0;
   padding: 0;
 }
+
+.container {
+  width: 500px;
+  height: 500px;
+  background-color: red;
+}
+
+.grid {
+  width: 90%;
+  height: 90%;
+  background-color: blue;
+}
