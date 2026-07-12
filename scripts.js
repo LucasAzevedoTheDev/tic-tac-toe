@@ -78,6 +78,7 @@ function displayController() {
   let container = document.createElement("div");
     container.classList.add("container");
     document.body.appendChild(container);
+
   let grid = document.createElement("div");
     grid.classList.add("grid");
     container.appendChild(grid);
@@ -89,6 +90,10 @@ function displayController() {
           square.classList.add("square");
           square.textContent = board.getBoard()[i];
           grid.appendChild(square);
+        
+        // if(square.textContent === "X") {
+        //   square.textContent = "ola";
+        // }
       }
     }
   }
