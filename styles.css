@@ -6,12 +6,16 @@
 
 body {
   background-color: #121212;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
   overflow: hidden;
-  width: 90%;
-  height: 600px;
+  width: 150vh;
+  height: 80vh;
   background-color: rgb(58, 55, 72);
   margin-left: auto;
   margin-right: auto;
@@ -23,8 +27,8 @@ body {
 }
 
 .grid {
-  width: 350px;
-  height: 400px;
+  width: 50vh;
+  height: 300px;
   background-color: black;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -72,8 +76,7 @@ form {
   flex-wrap: wrap;
   flex-direction: column; 
   align-items: center;
-  justify-content: space-evenly;
-  gap: 80px;
+  gap: 15px;
 }
 
 .form-field {
@@ -84,7 +87,7 @@ form {
 }
 
 input[type="text"] {
-  width: 50%;
+  width: 40%;
   height: 25px;
   margin-bottom: 10px;
 }
@@ -94,8 +97,9 @@ input[type="radio"] {
 }
 
 label {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   cursor: pointer;
+  font-weight: 500;
 }
 
 fieldset {
@@ -119,7 +123,7 @@ fieldset {
   border-radius: 10px;
   border: 1px solid grey;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .close-button:hover {
@@ -130,4 +134,20 @@ fieldset {
 .start-button:hover {
   border: 3px solid rgb(78, 205, 196);
   transition: all 0.1s cubic-bezier(0.42, 0, 0.1, 0.61);
+}
+
+.dialog-button {
+  width: 22vh;
+  height: 8vh;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  border-radius: 10px;
+  border: 2px solid rgb(78, 205, 196);
+  transition: all 0.5s cubic-bezier(0.42, 0, 0.1, 0.61);
+}
+
+.dialog-button:hover {
+  background-color: rgb(58, 185, 176);
+  color: white;
 }
