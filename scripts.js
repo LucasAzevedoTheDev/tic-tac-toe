@@ -97,18 +97,15 @@ function displayController() {
 const display = displayController();
 
 // TESTS
-console.log(game.getCurrentPlayer());
-game.playRound(2);
-console.log(board.getBoard());
-console.log(game.getCurrentPlayer());
-game.playRound(8);
-console.log(board.getBoard());
-game.playRound(1);
-console.log(board.getBoard());
-game.playRound(7);
-console.log(board.getBoard());
 game.playRound(0);
-console.log(board.getBoard());
+game.playRound(1);
+game.playRound(2);
+game.playRound(3);
+game.playRound(4);
+game.playRound(5);
+game.playRound(6);
+game.playRound(7);
+game.playRound(8);
 display.createGrid();
 
 
