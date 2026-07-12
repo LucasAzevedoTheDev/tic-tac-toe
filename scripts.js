@@ -74,6 +74,27 @@ function gameController() {
 }
 const game = gameController();
 
+function displayController() {
+  let container = document.createElement("div");
+    container.classList.add(".container");
+    document.body.appendChild(container);
+  let grid = document.createElement("div");
+    grid.classList.add(".grid");
+    container.appendChild(grid);
+
+  return {
+    createGrid: () => {
+      const gridWidth = 3;
+      const array = [];
+      for(let i = 0; i < board.getBoard().length; i += gridWidth) {
+        array.push(board.getBoard().slice(i, i + gridWidth));
+      }
+      grid.appendChild(array);
+    }
+  }
+}
+const display = displayController();
+
 // TESTS
 console.log(game.getCurrentPlayer());
 game.playRound(2);
