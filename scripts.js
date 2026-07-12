@@ -89,11 +89,27 @@ function displayController() {
         let square = document.createElement("div");
           square.classList.add("square");
           square.textContent = board.getBoard()[i];
-          grid.appendChild(square);
         
-        // if(square.textContent === "X") {
-        //   square.textContent = "ola";
-        // }
+        // Replace X/O text with SVG icon
+        if(square.textContent === "X") {
+          square.textContent = "";
+
+          const xIcon = document.createElement("img");
+            xIcon.src = "icons/x.svg";
+            xIcon.alt = "x icon";
+            xIcon.classList.add("x-icon");
+          square.appendChild(xIcon);
+        }
+        else if(square.textContent === "O") {
+          square.textContent = "";
+
+          const circleIcon = document.createElement("img");
+            circleIcon.src = "icons/circle.svg";
+            circleIcon.alt = "circle icon";
+            circleIcon.classList.add("circle-icon");
+          square.appendChild(circleIcon);
+        }
+        grid.appendChild(square);
       }
     }
   }
