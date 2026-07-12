@@ -5,13 +5,33 @@
 }
 
 .container {
-  width: 500px;
-  height: 500px;
-  background-color: red;
+  overflow: hidden;
+  width: 90%;
+  height: 600px;
+  background-color: rgb(58, 55, 72);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
 .grid {
-  width: 90%;
-  height: 90%;
-  background-color: blue;
+  width: 350px;
+  height: 400px;
+  background-color: black;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+
+.square {
+  background-color: rgb(58, 55, 72);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
 }
