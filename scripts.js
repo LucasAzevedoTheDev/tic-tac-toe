@@ -141,11 +141,13 @@ const game = gameController();
 function displayController() {
   let container = document.querySelector(".container");
   let grid = document.createElement("div");
-    grid.classList.add("grid");
-    container.appendChild(grid);
+  grid.classList.add("grid");
+  container.appendChild(grid);
+
   let currentDisplay = document.createElement("p");
-    currentDisplay.classList.add("current-display");
-    grid.before(currentDisplay);
+  currentDisplay.classList.add("current-display");
+  grid.before(currentDisplay);
+
   let startMsg = document.createElement("p");
   startMsg.classList.add("start-msg");
   startMsg.textContent = "Please click the start button to begin the game!";
@@ -169,8 +171,8 @@ function displayController() {
   
       for(let i = 0; i < board.getBoard().length; i++) {
         let square = document.createElement("div");
-          square.classList.add("square");
-          updateSquare(square, i);
+        square.classList.add("square");
+        updateSquare(square, i);
 
         square.addEventListener("click", () => {
           game.playRound(i);
@@ -224,9 +226,9 @@ function displayController() {
             }
 
             let winnerDisplay = document.createElement("p");
-              winnerDisplay.classList.add("winner-msg");
-              winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won!!`; 
-              grid.before(winnerDisplay);
+            winnerDisplay.classList.add("winner-msg");
+            winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won!!`; 
+            grid.before(winnerDisplay);
           
             let restartButton = document.createElement("button");
             restartButton.classList.add("restart-button");
