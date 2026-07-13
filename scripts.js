@@ -37,7 +37,6 @@ function gameController() {
   const submitButton = document.querySelector(".start-button");
   submitButton.addEventListener("click", (event) => {
     event.preventDefault();
-    board.reset();
 
     const player1Name = document.querySelector(".player1-name").value;
     const player1Mark = document.querySelector('[name="player1-mark"]:checked').value;
@@ -48,20 +47,34 @@ function gameController() {
       alert("Can't select the same mark for both players.");
     }
     else {
+      board.reset();
       player1 = new Player(player1Name, player1Mark);
       player2 = new Player(player2Name, player2Mark);
       currentPlayer = player1;
+
+      document.querySelector(".start-msg")?.remove();
+      document.querySelector(".winner-msg")?.remove();
+      document.querySelector(".restart-button")?.remove();
+      document.querySelector(".current-msg")?.remove();
+
+      const squares = document.querySelectorAll(".square");
+      squares.forEach((square) => {
+        square.innerHTML = "";
+      });
 
       form.reset();
       modal.close();
 
       let grid = document.querySelector(".grid");
-      let currentMsg = document.createElement("p");
+      let currentMsg = document.querySelector(".current-msg");
+      if(!currentMsg) {
+        currentMsg = document.createElement("p");
         currentMsg.classList.add("current-msg");
-        currentMsg.textContent = `${game.getCurrentPlayer().name}'s turn!`;
         grid.before(currentMsg);
+      }
+      currentMsg.style.display = "block";
+      currentMsg.textContent = `${game.getCurrentPlayer().name}'s turn!`;
     }
-    
   });      
                                                   
   let switchTurn = () => {
@@ -216,7 +229,7 @@ function displayController() {
 
             let winnerDisplay = document.createElement("p");
               winnerDisplay.classList.add("winner-msg");
-              winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won`; 
+              winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won!!`; 
               grid.before(winnerDisplay);
           
             let restartButton = document.createElement("button");
@@ -258,18 +271,6 @@ const closeButton = document.querySelector(".close-button");
 const form = document.querySelector(".form");
 
 dialogButton.addEventListener("click", () => {
-  board.reset();
-
-  document.querySelector(".start-msg")?.remove();
-  document.querySelector(".winner-msg")?.remove();
-  document.querySelector(".restart-button")?.remove();
-  document.querySelector(".current-msg")?.remove();
-
-  const squares = document.querySelectorAll(".square");
-  squares.forEach((square) => {
-    square.innerHTML = "";
-  });
-
    modal.showModal();
 });
 
