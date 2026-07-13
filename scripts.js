@@ -156,28 +156,31 @@ function displayController() {
                 grid.before(startMsg);
             }
           };
-        
-        game.playRound(i);
-        updateSquare(square, i);
+          
+          game.playRound(i);
+          updateSquare(square, i);
 
-        let currentMsg = document.querySelector(".current-msg");
+          let currentMsg = document.querySelector(".current-msg");
+          let winnerDisplay = document.querySelector(".winner-msg");
+          let hasWon = game.checkWinner();
+
           if(currentMsg) {
             currentMsg.textContent = `${game.getCurrentPlayer().name}'s turn!`;
           }
-          
-        let hasWon = game.checkWinner();
-        if(hasWon && !document.querySelector(".winner-message")) {
-          if(currentMsg) {
-            currentMsg.style.display = "none";
-          }
-
-          let winnerDisplay = document.createElement("p");
-            winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won`; 
-            grid.before(winnerDisplay);
             
-        }
-      });
-
+          if(hasWon && !winnerDisplay) {
+            if(currentMsg) {
+              currentMsg.style.display = "none";
+            }
+              let winnerDisplay = document.createElement("p");
+                winnerDisplay.classList.add("winner-msg");
+                winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won`; 
+                grid.before(winnerDisplay);
+          }
+          if(winnerDisplay) {
+            // Do nothing
+          }
+        });
         grid.appendChild(square);        
       }
     }
