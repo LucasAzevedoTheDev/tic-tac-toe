@@ -182,7 +182,7 @@ function displayController() {
             let restartButton = document.createElement("button");
               restartButton.classList.add("restart-button");
               restartButton.textContent = "Restart";
-              grid.appendChild(restartButton);
+              container.appendChild(restartButton);
 
               restartButton.addEventListener("click", () => {
                 board.reset();  
