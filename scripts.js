@@ -82,12 +82,6 @@ function gameController() {
   return {
     switchTurn: switchTurn,
     getCurrentPlayer: () => currentPlayer,
-    playRound: (index) => {
-        let marked = board.placeMark(index, currentPlayer.mark);
-        if(marked) {
-          switchTurn();
-        }
-    },
     checkWinner: () => {
       let boardCheck = board.getBoard();
       let winCondition = false;
@@ -100,6 +94,19 @@ function gameController() {
         }
       });
       return winCondition;
+    },
+    playRound: (index) => {
+      if(!currentPlayer) {
+        return;
+      }
+
+      if(!game.checkWinner()) {
+        let marked = board.placeMark(index, currentPlayer.mark);
+        
+        if(marked) {
+          switchTurn();
+        }
+      }
     }
   }
 }
@@ -138,7 +145,7 @@ function displayController() {
           game.playRound(i);
           updateSquare(square, i);
            let hasWon = game.checkWinner();
-            if(hasWon === true) {
+            if(hasWon && !document.querySelector(".winner-message")) {
               let winnerDisplay = document.createElement("p");
                 winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won`; 
                 grid.before(winnerDisplay);
