@@ -178,7 +178,7 @@ function displayController() {
               winnerDisplay.classList.add("winner-msg");
               winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won`; 
               grid.before(winnerDisplay);
-            
+          
             let restartButton = document.createElement("button");
               restartButton.classList.add("restart-button");
               restartButton.textContent = "Restart";
@@ -218,12 +218,19 @@ const closeButton = document.querySelector(".close-button");
 const form = document.querySelector(".form");
 
 dialogButton.addEventListener("click", () => {
-  modal.showModal();
+  board.reset();
 
-  const startMsg = document.querySelector(".start-msg");
-  if(startMsg) {
-    startMsg.remove();
-  }
+  document.querySelector(".start-msg")?.remove();
+  document.querySelector(".winner-msg")?.remove();
+  document.querySelector(".restart-button")?.remove();
+  document.querySelector(".current-msg")?.remove();
+
+  const squares = document.querySelectorAll(".square");
+  squares.forEach((square) => {
+    square.innerHTML = "";
+  });
+
+   modal.showModal();
 });
 
 closeButton.addEventListener("click", () => {
