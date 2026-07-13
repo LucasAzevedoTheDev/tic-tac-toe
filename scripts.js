@@ -54,6 +54,12 @@ function gameController() {
 
       form.reset();
       modal.close();
+
+      let grid = document.querySelector(".grid");
+      let currentMsg = document.createElement("p");
+        currentMsg.classList.add("current-msg");
+        currentMsg.textContent = `${game.getCurrentPlayer().name}'s turn!`;
+        grid.before(currentMsg);
     }
     
   });      
@@ -150,15 +156,26 @@ function displayController() {
                 grid.before(startMsg);
             }
           };
-
+        
         game.playRound(i);
         updateSquare(square, i);
-          let hasWon = game.checkWinner();
-          if(hasWon && !document.querySelector(".winner-message")) {
-            let winnerDisplay = document.createElement("p");
-              winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won`; 
-              grid.before(winnerDisplay);
+
+        let currentMsg = document.querySelector(".current-msg");
+          if(currentMsg) {
+            currentMsg.textContent = `${game.getCurrentPlayer().name}'s turn!`;
           }
+          
+        let hasWon = game.checkWinner();
+        if(hasWon && !document.querySelector(".winner-message")) {
+          if(currentMsg) {
+            currentMsg.style.display = "none";
+          }
+
+          let winnerDisplay = document.createElement("p");
+            winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won`; 
+            grid.before(winnerDisplay);
+            
+        }
       });
 
         grid.appendChild(square);        
