@@ -146,6 +146,11 @@ function displayController() {
   let currentDisplay = document.createElement("p");
     currentDisplay.classList.add("current-display");
     grid.before(currentDisplay);
+  let startMsg = document.createElement("p");
+  startMsg.classList.add("start-msg");
+  startMsg.textContent = "Please click the start button to begin the game!";
+  grid.before(startMsg);
+
   return {
     createGrid: () => {
        // Replace X/O text with SVG icon
@@ -168,15 +173,6 @@ function displayController() {
           updateSquare(square, i);
 
         square.addEventListener("click", () => {
-          if(!game.getCurrentPlayer()) {
-            if(!document.querySelector(".start-msg")) {
-              let startMsg = document.createElement("p");
-                startMsg.classList.add("start-msg");
-                startMsg.textContent = "Please click the start button to begin the game!";
-                grid.before(startMsg);
-            }
-          };
-          
           game.playRound(i);
           updateSquare(square, i);
 
@@ -272,6 +268,7 @@ const form = document.querySelector(".form");
 
 dialogButton.addEventListener("click", () => {
    modal.showModal();
+   document.querySelector(".start-msg").remove();
 });
 
 closeButton.addEventListener("click", () => {
