@@ -240,18 +240,3 @@ closeButton.addEventListener("click", () => {
 
 display.createGrid();
 
-
-// TESTS
-// game.playRound(0);
-// game.playRound(1);
-// game.playRound(2);
-// game.playRound(3);
-// game.playRound(4);
-// game.playRound(5);
-// game.playRound(6);
-// game.playRound(7);
-// game.playRound(8);
-
-// ADD CURRENTDISPLAY P LOGIC
-
-

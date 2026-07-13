@@ -13,6 +13,7 @@ body {
 }
 
 .container {
+  position: relative;
   overflow: hidden;
   width: 150vh;
   height: 80vh;
@@ -22,6 +23,7 @@ body {
   margin-top: 20px;
   border-radius: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -159,4 +161,17 @@ button {
 
 p {
   background-color: white;
+}
+
+.start-msg, 
+.current-msg,
+.winner-msg {
+  position: absolute;
+  top: 10px;
+  text-align: center;
+  background-color: rgb(58, 55, 72);
+  color: white;
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
