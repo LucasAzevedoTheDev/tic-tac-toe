@@ -28,13 +28,11 @@ function Player(name, mark) {
   this.mark = mark;
 }
 
-const player1 = new Player("player1", "X");
-const player2 = new Player("player2", "O");
 
 function gameController() {
   let player1;
   let player2;
-  let currentPlayer = player1;
+  let currentPlayer;
 
   const submitButton = document.querySelector(".start-button");
   submitButton.addEventListener("click", (event) => {
@@ -42,15 +40,22 @@ function gameController() {
     board.reset();
 
     const player1Name = document.querySelector(".player1-name").value;
-    const player1Mark = document.querySelector(".player1-mark").value;
+    const player1Mark = document.querySelector('[name="player1-mark"]').value;
     const player2Name = document.querySelector(".player2-name").value;
-    const player2Mark = document.querySelector(".player2-mark").value;
+    const player2Mark = document.querySelector('[name="player2-mark"]').value;
     
-    player1 = new Player(player1Name, player1Mark);
-    player2 = new Player(player2Name, player2Mark);
+    if(player1Mark === player2Mark) {
+      alert("Can't select the same mark for both players.");
+    }
+    else {
+      player1 = new Player(player1Name, player1Mark);
+      player2 = new Player(player2Name, player2Mark);
+      currentPlayer = player1;
 
-    form.reset();
-    modal.close();
+      form.reset();
+      modal.close();
+    }
+    
   });      
                                                   
   let switchTurn = () => {
