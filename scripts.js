@@ -40,9 +40,9 @@ function gameController() {
     board.reset();
 
     const player1Name = document.querySelector(".player1-name").value;
-    const player1Mark = document.querySelector('[name="player1-mark"]').value;
+    const player1Mark = document.querySelector('[name="player1-mark"]:checked').value;
     const player2Name = document.querySelector(".player2-name").value;
-    const player2Mark = document.querySelector('[name="player2-mark"]').value;
+    const player2Mark = document.querySelector('[name="player2-mark"]:checked').value;
     
     if(player1Mark === player2Mark) {
       alert("Can't select the same mark for both players.");
@@ -107,7 +107,9 @@ function displayController() {
   let grid = document.createElement("div");
     grid.classList.add("grid");
     container.appendChild(grid);
-
+  let currentDisplay = document.createElement("p");
+    currentDisplay.classList.add("current-display");
+    grid.before(currentDisplay);
   return {
     createGrid: () => {
        // Replace X/O text with SVG icon
@@ -176,6 +178,6 @@ display.createGrid();
 // game.playRound(7);
 // game.playRound(8);
 
-// Refactor gameController() logic
+// ADD CURRENTDISPLAY P LOGIC
 
 
