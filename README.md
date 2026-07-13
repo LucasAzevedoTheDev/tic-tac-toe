@@ -4,7 +4,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
-A two-player Tic Tac Toe game built in vanilla JavaScript, following [The Odin Project's assignment](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe).
+A fully playable two-player Tic Tac Toe game built with Vanilla JavaScript, HTML, and CSS. This project is part of The Odin Project's JavaScript curriculum, focusing on factory functions, the module pattern, and structuring an application's logic into independent, communicating objects.
 
 ## Features
 
