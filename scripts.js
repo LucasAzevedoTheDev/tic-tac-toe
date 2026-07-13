@@ -113,6 +113,10 @@ function gameController() {
           switchTurn();
         }
       }
+    },
+    checkTie: () => {
+      let boardCheck = board.getBoard();
+      return !boardCheck.includes("") && !game.checkWinner();
     }
   }
 }
