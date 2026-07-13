@@ -102,7 +102,7 @@ function gameController() {
 
       if(!game.checkWinner()) {
         let marked = board.placeMark(index, currentPlayer.mark);
-        
+
         if(marked) {
           switchTurn();
         }
@@ -142,15 +142,24 @@ function displayController() {
           updateSquare(square, i);
 
         square.addEventListener("click", () => {
-          game.playRound(i);
-          updateSquare(square, i);
-           let hasWon = game.checkWinner();
-            if(hasWon && !document.querySelector(".winner-message")) {
-              let winnerDisplay = document.createElement("p");
-                winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won`; 
-                grid.before(winnerDisplay);
+          if(!game.getCurrentPlayer()) {
+            if(!document.querySelector(".start-msg")) {
+              let startMsg = document.createElement("p");
+                startMsg.classList.add("start-msg");
+                startMsg.textContent = "Please click the start button to begin the game!";
+                grid.before(startMsg);
             }
-        });
+          };
+
+        game.playRound(i);
+        updateSquare(square, i);
+          let hasWon = game.checkWinner();
+          if(hasWon && !document.querySelector(".winner-message")) {
+            let winnerDisplay = document.createElement("p");
+              winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won`; 
+              grid.before(winnerDisplay);
+          }
+      });
 
         grid.appendChild(square);        
       }
@@ -167,6 +176,11 @@ const form = document.querySelector(".form");
 
 dialogButton.addEventListener("click", () => {
   modal.showModal();
+
+  const startMsg = document.querySelector(".start-msg");
+  if(startMsg) {
+    startMsg.remove();
+  }
 });
 
 closeButton.addEventListener("click", () => {
