@@ -59,12 +59,15 @@ function gameController() {
   });      
                                                   
   let switchTurn = () => {
-    if(currentPlayer === player1) {
-        currentPlayer = player2;
-      }
-      else {
-        currentPlayer = player1;
-      }
+    let hasWon = game.checkWinner();
+    if(hasWon !== true) {
+      if(currentPlayer === player1) {
+          currentPlayer = player2;
+        }
+        else {
+          currentPlayer = player1;
+        }
+    }
   }
   let winningCombos = [
     [0, 1, 2],
