@@ -32,8 +32,27 @@ const player1 = new Player("player1", "X");
 const player2 = new Player("player2", "O");
 
 function gameController() {
-  let currentPlayer = player1;         
-                                                  //  REFACTOR THIS
+  let player1;
+  let player2;
+  let currentPlayer = player1;
+
+  const submitButton = document.querySelector(".start-button");
+  submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    board.reset();
+
+    const player1Name = document.querySelector(".player1-name").value;
+    const player1Mark = document.querySelector(".player1-mark").value;
+    const player2Name = document.querySelector(".player2-name").value;
+    const player2Mark = document.querySelector(".player2-mark").value;
+    
+    player1 = new Player(player1Name, player1Mark);
+    player2 = new Player(player2Name, player2Mark);
+
+    form.reset();
+    modal.close();
+  });      
+                                                  
   let switchTurn = () => {
     if(currentPlayer === player1) {
         currentPlayer = player2;
@@ -139,6 +158,7 @@ closeButton.addEventListener("click", () => {
 });
 
 display.createGrid();
+
 
 // TESTS
 // game.playRound(0);
