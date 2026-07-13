@@ -268,7 +268,7 @@ const form = document.querySelector(".form");
 
 dialogButton.addEventListener("click", () => {
    modal.showModal();
-   document.querySelector(".start-msg").remove();
+   document.querySelector(".start-msg")?.remove();
 });
 
 closeButton.addEventListener("click", () => {
