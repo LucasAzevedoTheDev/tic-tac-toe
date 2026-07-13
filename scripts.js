@@ -63,15 +63,16 @@ function gameController() {
     },
     checkWinner: () => {
       let boardCheck = board.getBoard();
+      let winCondition = false;
 
       winningCombos.forEach((combo) => {
         if(boardCheck[combo[0]] === boardCheck[combo[1]] && boardCheck[combo[1]] === boardCheck[combo[2]] 
           && boardCheck[combo[0]] !== ""
         ) {
-          console.log("we have a winner");
-          board.reset();
+          winCondition = true;
         }
-      })
+      });
+      return winCondition;
     }
   }
 }
@@ -79,7 +80,6 @@ const game = gameController();
 
 function displayController() {
   let container = document.querySelector(".container");
-
   let grid = document.createElement("div");
     grid.classList.add("grid");
     container.appendChild(grid);
@@ -108,6 +108,12 @@ function displayController() {
         square.addEventListener("click", () => {
           game.playRound(i);
           updateSquare(square, i);
+           let hasWon = game.checkWinner();
+            if(hasWon === true) {
+              let winnerDisplay = document.createElement("p");
+                winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won`; 
+                grid.before(winnerDisplay);
+            }
         });
 
         grid.appendChild(square);        
@@ -132,6 +138,7 @@ closeButton.addEventListener("click", () => {
   form.reset();
 });
 
+display.createGrid();
 
 // TESTS
 // game.playRound(0);
@@ -143,7 +150,6 @@ closeButton.addEventListener("click", () => {
 // game.playRound(6);
 // game.playRound(7);
 // game.playRound(8);
-display.createGrid();
 
 // Refactor gameController() logic
 
