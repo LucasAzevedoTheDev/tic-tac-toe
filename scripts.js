@@ -163,6 +163,7 @@ function displayController() {
           let currentMsg = document.querySelector(".current-msg");
           let winnerDisplay = document.querySelector(".winner-msg");
           let hasWon = game.checkWinner();
+          let restartButton = document.querySelector(".restart-button");
 
           if(currentMsg) {
             currentMsg.textContent = `${game.getCurrentPlayer().name}'s turn!`;
@@ -172,10 +173,32 @@ function displayController() {
             if(currentMsg) {
               currentMsg.style.display = "none";
             }
-              let winnerDisplay = document.createElement("p");
-                winnerDisplay.classList.add("winner-msg");
-                winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won`; 
-                grid.before(winnerDisplay);
+
+            let winnerDisplay = document.createElement("p");
+              winnerDisplay.classList.add("winner-msg");
+              winnerDisplay.textContent = `${game.getCurrentPlayer().name} has won`; 
+              grid.before(winnerDisplay);
+            
+            let restartButton = document.createElement("button");
+              restartButton.classList.add("restart-button");
+              restartButton.textContent = "Restart";
+              grid.appendChild(restartButton);
+
+              restartButton.addEventListener("click", () => {
+                board.reset();  
+
+                winnerDisplay.remove();
+                restartButton.remove();
+
+                const squares = document.querySelectorAll(".square");
+                squares.forEach((square) => {
+                  square.innerHTML = "";
+                });
+                if(currentMsg) {
+                  currentMsg.style.display = "block";
+                  currentMsg.textContent = `${game.getCurrentPlayer().name}'s turn!`;
+                }
+              })
           }
           if(winnerDisplay) {
             // Do nothing
